@@ -125,6 +125,10 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Terimakasih</strong> Pesan Anda Sudah Kami Terima
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <form name="form-login">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
@@ -138,7 +142,11 @@
                 <label for="pesan" class="form-label">Pesan</label>
                 <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -161,11 +169,26 @@
       const scriptURL = 'https://script.google.com/macros/s/AKfycbyAJpmYHNy9U79RnrNoI6cngj5X9Z1t4CMXX_Qbt9KasYIpdZfPaEGII0P631WWFcZf/exec'
       const form = document.forms['form-login']
     
-      form.addEventListener('submit', e => {
-        e.preventDefault()
+      const btnLoading1 = document.querySelector('.btn-loading');
+      const btnKirim1 = document.querySelector('.btn-kirim');
+      const myAlert = document.querySelector('.my-alert');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        btnLoading1.classList.toggle('d-none');
+        btnKirim1.classList.toggle('d-none');
+      
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => console.log('Success!', response))
-          .catch(error => console.error('Error!', error.message))
+          .then(response => {
+
+            btnLoading1.classList.toggle('d-none');
+            btnKirim1.classList.toggle('d-none');
+            myAlert.classList.toggle('d-none');
+            form.reset();
+            console.log('Success!', response);
+
+        })
+          .catch(error => console.error('Error!', error.message));
       })
     </script>
   </body>
