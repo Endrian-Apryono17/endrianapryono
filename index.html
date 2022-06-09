@@ -82,7 +82,7 @@
             <h2>My Projects</h2>
           </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center fs-5 mb-3">
           <div class="col-md-4 mb-3">
             <div class="card">
               <img src="projects/eddie-pipocas-LZYVe6p401c-unsplash.jpg" class="card-img-top" alt="..." data-aos="zoom-in">
@@ -116,6 +116,31 @@
     </section>
     <!-- akhir projects -->
 
+    <!-- awal gambar -->
+    <section id="Galery">
+      <div class="gatau">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Galery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-3 mb-3 kepo">
+            <img src="gallery/istockphoto-1070242648-1024x1024.jpg" alt="gambar1" width="300" height="300" class="card-img-top">
+          </div>
+          <div class="col-md-3 mb-3 kepo">
+            <img src="gallery/istockphoto-1277616138-1024x1024.jpg" alt="gambar2" width="300" height="300" class="card-img-top">
+          </div>
+          <div class="col-md-3 mb-3  kepo">
+            <img src="gallery/istockphoto-1291971638-1024x1024.jpg" alt="gambar3" width="300" height="300" class="card-img-top">
+          </div>
+          <div class="col-md-3 mb-3  kepo">
+            <img src="gallery/istockphoto-1305373298-1024x1024.jpg" alt="gambar4" width="300" height="300" class="card-img-top">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- akhir gambar -->
     <!-- awal contact -->
     <section id="contact">
       <div class="container">
@@ -214,6 +239,15 @@
         })
           .catch(error => console.error('Error!', error.message));
       })
+    </script>
+
+    <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".kepo"), {
+        max: 25,
+        speed: 400
+      });
+      
     </script>
   </body>
 </html>
